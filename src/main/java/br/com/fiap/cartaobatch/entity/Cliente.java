@@ -12,7 +12,6 @@ public class Cliente {
     private String nome;
     private int matricula;
     private String matriculaTxt;
-    private String turma;
-    private double limite;
+    private String codVerificador;
 
 }

@@ -42,8 +42,8 @@ public class CartaoBatchApplication {
                 .targetType(Cliente.class)
                 .recordSeparatorPolicy(new BlankLineRecordSeparatorPolicy())
                 .lineTokenizer(new FixedLengthTokenizer() {{
-                	setNames("nome", "matriculatxt", "turma");
-                	setColumns(new Range(1, 41), new Range(42 , 48), new Range(50, 55));
+                	setNames("nome", "matriculatxt", "codverificador");
+                	setColumns(new Range(1, 41), new Range(42 , 48), new Range(49));
                 }})
                 .build();
     }
@@ -53,12 +53,10 @@ public class CartaoBatchApplication {
         return cliente -> {
 //            logger.info("Processing: " + cliente.getNome());
 //            logger.info("Matricula: " +cliente.getMatricula());
-//            logger.info("turma: " + cliente.getTurma());
             if (cliente.getNome().contains("---")){
                 return null;
             }
             cliente.setMatricula(Integer.parseInt(cliente.getMatriculaTxt()));
-            cliente.setLimite(0.0);
             return cliente;
         };
     }
@@ -67,7 +65,7 @@ public class CartaoBatchApplication {
     public ItemWriter<Cliente> itemWriter(DataSource dataSource){
     	logger.info("Item writer: " + dataSource.toString());
         return new JdbcBatchItemWriterBuilder<Cliente>()
-                .sql("insert into CLIENTES(nome, matricula, limite_disponivel, data_cadastro, data_atualizacao) values (:nome, :matricula, :limite, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                .sql("insert into CLIENTES(nome, matricula, data_cadastro, data_atualizacao) values (:nome, :matricula, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
                 .dataSource(dataSource)
                 .beanMapped()
                 .build();
