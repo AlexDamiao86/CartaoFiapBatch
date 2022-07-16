@@ -60,7 +60,6 @@ public class CartaoBatchApplication {
             cliente.setMatricula(Integer.parseInt(cliente.getMatriculaTxt()));
             cliente.setLimite(0.0);
             return cliente;
-
         };
     }
 
@@ -96,5 +95,4 @@ public class CartaoBatchApplication {
                 .start(step)
                 .build();
     }
-
 }
