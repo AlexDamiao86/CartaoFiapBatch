@@ -37,9 +37,9 @@ public class CartaoBatchApplication {
     public ItemReader<Cliente> itemReader(@Value("${file.resource}") Resource resource){
         return new FlatFileItemReaderBuilder<Cliente>()
                 .name("cliente file reader")
-                .comments("--")
                 .resource(resource)
                 .targetType(Cliente.class)
+                .comments("---")
                 .recordSeparatorPolicy(new BlankLineRecordSeparatorPolicy())
                 .lineTokenizer(new FixedLengthTokenizer() {{
                 	setNames("nome", "matriculatxt", "codverificador");
