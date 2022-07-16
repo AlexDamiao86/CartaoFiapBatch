@@ -3,8 +3,8 @@ package br.com.fiap.cartaobatch;
 import org.springframework.batch.item.file.separator.RecordSeparatorPolicy;
 import org.springframework.batch.item.file.separator.SimpleRecordSeparatorPolicy;
 
-public class BlankLineRecordSeparatorPolicy extends SimpleRecordSeparatorPolicy 
-											implements RecordSeparatorPolicy {
+public class BlankLineRecordSeparatorPolicy extends SimpleRecordSeparatorPolicy
+		implements RecordSeparatorPolicy {
 
 	@Override
 	public boolean isEndOfRecord(final String line) {
@@ -13,10 +13,10 @@ public class BlankLineRecordSeparatorPolicy extends SimpleRecordSeparatorPolicy
 
 	@Override
 	public String postProcess(final String record) {
-        if (record == null || record.trim().length() == 0) {
-            return null;
-        }
-        return super.postProcess(record);
+		if (record == null || record.trim().length() == 0) {
+			return null;
+		}
+		return super.postProcess(record);
 	}
 
 }

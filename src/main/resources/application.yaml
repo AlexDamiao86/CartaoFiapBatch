@@ -12,5 +12,5 @@ spring:
       enabled: true
 
 file:
-  chunk: 20 
+  chunk: 10
   resource: lista_alunos.txt
