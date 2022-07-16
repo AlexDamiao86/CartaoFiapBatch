@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/fiapdb/cartao-fiap;DB_CLOSE_ON_EXIT=FALSE
+    username: fiap
+    password: fiap
+    driverClassName: org.h2.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+  h2:
+    console: 
+      enabled: true
+
+file:
+  chunk: 20 
+  resource: lista_alunos.txt
