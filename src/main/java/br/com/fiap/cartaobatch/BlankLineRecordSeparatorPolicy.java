@@ -12,11 +12,13 @@ public class BlankLineRecordSeparatorPolicy extends SimpleRecordSeparatorPolicy
 	}
 
 	@Override
-	public String postProcess(final String record) {
-		if (record == null || record.trim().length() == 0) {
-			return null;
-		}
-		return super.postProcess(record);
+
+	public String postProcess(final String line) {
+        if (line == null || line.trim().length() == 0) {
+            return null;
+        }
+        return super.postProcess(line);
+
 	}
 
 }
