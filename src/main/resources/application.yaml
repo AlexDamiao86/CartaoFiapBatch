@@ -4,12 +4,9 @@ spring:
     username: fiap
     password: fiap
     driverClassName: org.h2.Driver
-
   batch:
     jdbc:
       initialize-schema: always
-      #schema: classpath:schema.sql
-
   h2:
     console: 
       enabled: true
